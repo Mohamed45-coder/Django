@@ -1,0 +1,445 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Browse &mdash; Website Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="{% static 'https://fonts.googleapis.com/css?family=Rubik:400,700' %}" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+
+    <link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'css/rangeslider.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    
+    <header class="site-navbar" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+          
+          <div class="col-11 col-xl-2">
+            <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
+          </div>
+          <div class="col-12 col-md-10 mr-1 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li class="active"><a href="index.html"><span>Home</span></a></li>
+
+                {% if user.is_authenticated %}
+
+                <li><p class="text-light bg-dark">!hello,{{user.username}}</p></li>
+                <li><a href="logout"><span>logout</span></a></li>
+
+                {% else %}
+                <li class="has-children">
+                  <a ><span>Account</span></a>
+                  <ul class="dropdown arrow-top">
+                    <li><a href="signup">signup</a></li>
+                    <li class="has-children">
+                      <a href="#">Login</a>
+                      <ul class="dropdown">
+                        <form action='login' method="POST">{% csrf_token %}
+                          <input type="text" name="username" placeholder="username">
+                          <input type="password" name="password" placeholder="password">
+                          <input type="submit">
+                        </form>
+                        
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                {% endif %}
+                <li><a href="about.html"><span>About</span></a></li>
+                
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="d-inline-block d-xl-none ml-md-0 mr-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-white"><span class="icon-menu h3"></span></a></div>
+
+          </div>
+
+        </div>
+      </div>
+      
+    </header>
+
+  
+
+    <div class="site-blocks-cover overlay" style="background-image:url({%static 'images/hero_1.jpg' %}); " data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="container">
+        <div class="row align-items-center justify-content-center text-center">
+
+          <div class="col-md-10">
+            
+            
+            <div class="row justify-content-center mb-4">
+              <div class="col-md-10 text-center">
+                <h1 data-aos="fade-up">Find Nearby <span class="typed-words"></span></h1>
+                {% if user.is_authenticated %}
+                <p data-aos="fade-up" class=" w-75 mx-auto"> {{user.username}}   click on the place name and get more information about the place</p>
+                {% else %}
+                <h3><p data-aos="fade-up" class=" w-75 mx-auto">Hurry_up... LOGIN and know more about the place and offers!!!!!!</p></h3>
+                {% endif %}
+              </div>
+            </div>
+
+            <div class="form-search-wrap p-2" data-aos="fade-up" data-aos-delay="200">
+              <form method="post">
+                <div class="row align-items-center">
+                  <div class="col-lg-12 col-xl-4 no-sm-border border-right">
+                    <input type="text" class="form-control" placeholder="What are you looking for?">
+                  </div>
+                  <div class="col-lg-12 col-xl-3 no-sm-border border-right">
+                    <div class="wrap-icon">
+                      <span class="icon icon-room"></span>
+                      <input type="text" class="form-control" placeholder="Location">
+                    </div>
+                    
+                  </div>
+                  <div class="col-lg-12 col-xl-3">
+                    <div class="select-wrap">
+                      <span class="icon"><span class="icon-keyboard_arrow_down"></span></span>
+                      <select class="form-control" name="" id="">
+                        <option value="">All Categories</option>
+                        <option value="">Hotels</option>
+                        <option value="">Restaurant</option>
+                        <option value="">Eat &amp; Drink</option>
+                        <option value="">Events</option>
+                        <option value="">Fitness</option>
+                        <option value="">Others</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="col-lg-12 col-xl-2 ml-auto text-right">
+                    <input type="submit" class="btn text-white btn-primary" value="Search">
+                  </div>
+                  
+                </div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>  
+
+    
+    
+      
+    
+    <div class="site-section" data-aos="fade">
+      <div class="container">
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="font-weight-light text-primary">Most Visited Places</h2>
+            <p class="color-black-opacity-5">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+        </div>
+        
+        <div class="row">
+          {% for field in field%}
+          <div class="col-md-6 mb-4 mb-lg-4 col-lg-4">
+            
+            <div class="listing-item">
+              <div class="listing-image">
+                <img src="{{field.image.url}}" alt="Free Website Template by Free-Template.co" class="img-fluid">
+              </div>
+              <div class="listing-item-content">
+                <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
+                {% if user.is_authenticated %}
+                <a class="px-3 mb-3 category" href="#" >{{field.location}}</a>
+                {% else %}
+                <a class="px-3 mb-3 category" >{{field.location}}</a>
+                {% endif %}
+                <h2 class="mb-1"><a>{{field.hotel}}</a></h2>
+                <span class="address">{{field.description}}</span>
+              </div>
+            </div>
+
+          </div>
+          {% endfor %}
+        </div>
+        
+      </div>
+    </div>
+
+    
+    
+    
+    <div class="site-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 mb-5">
+            <img src="{%static 'images/img_1.jpg'%}" alt="Free Website Template by Free-Template.co" class="img-fluid rounded">
+          </div>
+          <div class="col-md-5 ml-auto">
+            <h2 class="text-primary mb-3">Why Us</h2>
+            <div class="row mt-4">
+              <div class="col-12">
+                <div class="border p-3 rounded mb-2">
+                  <a data-toggle="collapse" href="#collapse-1" role="button" aria-expanded="false" aria-controls="collapse-1" class="accordion-item h5 d-block mb-0">How to list my item?</a>
+
+                  <div class="collapse" id="collapse-1">
+                    <div class="pt-2">
+                      <p class="mb-0">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border p-3 rounded mb-2">
+                  <a data-toggle="collapse" href="#collapse-4" role="button" aria-expanded="false" aria-controls="collapse-4" class="accordion-item h5 d-block mb-0">Is this available in my country?</a>
+
+                  <div class="collapse" id="collapse-4">
+                    <div class="pt-2">
+                      <p class="mb-0">A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border p-3 rounded mb-2">
+                  <a data-toggle="collapse" href="#collapse-2" role="button" aria-expanded="false" aria-controls="collapse-2" class="accordion-item h5 d-block mb-0">Is it free?</a>
+
+                  <div class="collapse" id="collapse-2">
+                    <div class="pt-2">
+                      <p class="mb-0">Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="border p-3 rounded mb-2">
+                  <a data-toggle="collapse" href="#collapse-3" role="button" aria-expanded="false" aria-controls="collapse-3" class="accordion-item h5 d-block mb-0">How the system works?</a>
+
+                  <div class="collapse" id="collapse-3">
+                    <div class="pt-2">
+                      <p class="mb-0">The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <div class="site-section bg-light">
+      <div class="container">
+
+        <div class="row justify-content-center mb-5">
+          <div class="col-md-7 text-center border-primary">
+            <h2 class="font-weight-light text-primary">Satisfied Customers</h2>
+          </div>
+        </div>
+
+        <div class="slide-one-item home-slider owl-carousel">
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="{%static 'images/person_3_sq.jpg' %}" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
+                <p>Willie Smith</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
+              </blockquote>
+            </div>
+          </div>
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="{%static 'images/person_2_sq.jpg' %}" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
+                <p>Robert Jones</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.&rdquo;</p>
+              </blockquote>
+            </div>
+          </div>
+
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="{%static 'images/person_4_sq.jpg' %}" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
+                <p>Peter Richmond</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.&rdquo;</p>
+              </blockquote>
+            </div>
+          </div>
+
+          <div>
+            <div class="testimonial">
+              <figure class="mb-4">
+                <img src="{%static 'images/person_5_sq.jpg' %}" alt="Free Website Template by Free-Template.co" class="img-fluid mb-3">
+                <p>Bruce Rogers</p>
+              </figure>
+              <blockquote>
+                <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven versalia, put her initial into the belt and made herself on the way.&rdquo;</p>
+              </blockquote>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    {% if user.is_authenticated %}
+    <div class="py-5 bg-primary">
+      <div class="container">
+        <div class="row">
+          
+            <h2 class="mb-3 mt-0 mx-5 text-white">Let's get started. Create your own memories with US....</h2>
+            <p class="mb-0 mx-5 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          
+        </div>
+      </div>
+    </div>
+    {% else %}
+    <div class="py-5 bg-primary">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 mr-auto mb-4 mb-lg-0">
+            <h2 class="mb-3 mt-0 text-white">Let's get started. Create your account & Join our community</h2>
+            <p class="mb-0 text-white">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+          </div>
+          <div class="col-lg-4">
+            <p class="mb-0"><a href="signup" class="btn btn-outline-white text-white btn-md px-5 font-weight-bold btn-md-block">Sign Up</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                <h2 class="footer-heading mb-4">Products</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                <h2 class="footer-heading mb-4">Features</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Services</a></li>
+                  <li><a href="#">Testimonials</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-6 mb-5 mb-lg-0 col-lg-3">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+            <form action="#" method="post">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control bg-transparent" placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary text-white" type="button" id="button-addon2">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5">
+          <div class="col-12 text-md-center text-left">
+            <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'js/jquery-migrate-3.0.1.min.js'%}"></script>
+  <script src="{% static 'js/jquery-ui.js'%}"></script>
+  <script src="{% static 'js/popper.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'js/jquery.stellar.min.js'%}"></script>
+  <script src="{% static 'js/jquery.countdown.min.js'%}"></script>
+  <script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{% static 'js/bootstrap-datepicker.min.js'%}"></script>
+  <script src="{% static 'js/aos.js'%}"></script>
+  <script src="{% static 'js/rangeslider.min.js'%}"></script>
+  
+
+  <script src="{% static 'js/typed.js'%}"></script>
+            <script>
+            var typed = new Typed('.typed-words', {
+            strings: ["Tourist spots", " Restaurants"],
+            typeSpeed: 80,
+            backSpeed: 80,
+            backDelay: 4000,
+            startDelay: 1000,
+            loop: true,
+            showCursor: true
+            });
+            </script>
+
+  <script src="{% static 'js/main.js'%}"></script>
+  
+  </body>
+</html>
