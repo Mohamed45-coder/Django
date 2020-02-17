@@ -7,4 +7,5 @@ class data(models.Model):
     hotel=models.CharField(max_length=100)
     description=models.TextField()
     image=models.ImageField(upload_to='pics')
+    more=models.CharField(max_length=100)
     

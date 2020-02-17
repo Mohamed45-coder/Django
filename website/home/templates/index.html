@@ -48,7 +48,7 @@
           <div class="col-11 col-xl-2">
             <h1 class="mb-0 site-logo"><a href="index.html" class="text-white h2 mb-0">Browse</a></h1>
           </div>
-          <div class="col-12 col-md-10 mr-1 d-none d-xl-block">
+          <div class="col-12 col-md-10 mr-auto d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu js-clone-nav mr-auto d-none d-lg-block">
@@ -64,16 +64,15 @@
                   <a ><span>Account</span></a>
                   <ul class="dropdown arrow-top">
                     <li><a href="signup">signup</a></li>
-                    <li class="has-children">
-                      <a href="#">Login</a>
-                      <ul class="dropdown">
-                        <form action='login' method="POST">{% csrf_token %}
+                    <li>
+                      <a href="#">
+                        
+                        <form action='login' method="POST" style="background-color:#E6E6FA">{% csrf_token %}
                           <input type="text" name="username" placeholder="username">
                           <input type="password" name="password" placeholder="password">
-                          <input type="submit">
+                          <input type="submit" value="LOGIN ">
                         </form>
-                        
-                      </ul>
+                      </a>  
                     </li>
                   </ul>
                 </li>
@@ -178,7 +177,9 @@
               <div class="listing-item-content">
                 <a href="listings-single.html" class="bookmark" data-toggle="tooltip" data-placement="left" title="Bookmark"><span class="icon-heart"></span></a>
                 {% if user.is_authenticated %}
-                <a class="px-3 mb-3 category" href="#" >{{field.location}}</a>
+               
+                <a class="px-3 mb-3 category" href="{{field.more}}" >{{field.location}}</a>
+               
                 {% else %}
                 <a class="px-3 mb-3 category" >{{field.location}}</a>
                 {% endif %}

@@ -4,13 +4,20 @@ from django.contrib.auth.models import User,auth
 from django.contrib import messages
 
 # Create your views here.
-def first(request):
+
+# The all-data function is used to upload the data from the admin side
+def all_data(request):
     fields=data.objects.all()
-    
     return render(request,'index.html', {'field':fields})
 
+def first(request):
+    return render(request,"first.html",)
+def second(request):
+    return render(request,"second.html")
+def third(request):
+   return render(request,"first.html")
 
-
+# Register is used for signup 
 def register(request):
     if request.method == 'POST':
         first_name=request.POST['first_name']
@@ -37,7 +44,7 @@ def register(request):
     return render(request,'signup.html')
 
 
-
+# Used for login
 def login(request):
     if request.method=="POST":
         user_name=request.POST.get('username')
@@ -50,7 +57,7 @@ def login(request):
             messages.info(request,'invalid cerdentials')
 
     return render(request,"signup.html")
-
+# used for logout
 def logout(request):
     auth.logout(request)
     return redirect('/index')
